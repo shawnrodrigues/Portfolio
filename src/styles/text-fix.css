@@ -1,0 +1,92 @@
+/* Fix for gradient text clipping issues */
+.text-gradient-fix {
+  /* Prevent text clipping in gradient backgrounds */
+  line-height: 1.5 !important;
+  padding: 4px 0 !important;
+  margin: 2px 0 !important;
+  overflow: visible !important;
+  display: inline-block !important;
+  vertical-align: baseline !important;
+  
+  /* Better text rendering */
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  
+  /* Fix gradient clipping */
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  
+  /* Ensure proper spacing */
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+}
+
+/* Fix for all gradient text elements */
+.bg-gradient-to-r.bg-clip-text,
+.bg-gradient-to-l.bg-clip-text,
+.bg-gradient-to-t.bg-clip-text,
+.bg-gradient-to-b.bg-clip-text {
+  line-height: 1.5 !important;
+  padding: 6px 0 !important;
+  margin: 2px 0 !important;
+  overflow: visible !important;
+  display: inline-block !important;
+  vertical-align: top !important;
+  
+  /* Prevent text cut-off */
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  
+  /* Better font rendering */
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  font-feature-settings: "kern" 1 !important;
+}
+
+/* Specific fix for name/header text */
+.header-name-text,
+.name-gradient {
+  line-height: 1.6 !important;
+  padding: 8px 0 !important;
+  margin: 4px 0 !important;
+  min-height: 2em !important;
+  display: inline-block !important;
+  overflow: visible !important;
+  
+  /* Enhanced gradient support */
+  background: linear-gradient(to right, var(--tw-gradient-from), var(--tw-gradient-to)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  
+  /* Prevent any clipping */
+  box-decoration-break: clone !important;
+  -webkit-box-decoration-break: clone !important;
+}
+
+/* Container fixes to prevent overflow issues */
+.flex.items-center,
+.header-container,
+.nav-container {
+  overflow: visible !important;
+  min-height: fit-content !important;
+}
+
+/* Fix for any text that might be clipped */
+h1, h2, h3, .text-xl, .text-lg, .font-bold {
+  overflow: visible !important;
+  line-height: 1.4 !important;
+  padding: 2px 0 !important;
+}
+
+/* Ensure proper text spacing in flex containers */
+.flex .text-xl,
+.flex .font-bold,
+.flex h1 {
+  margin: 0 !important;
+  padding: 4px 0 !important;
+  line-height: 1.5 !important;
+}
