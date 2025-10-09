@@ -16,6 +16,7 @@
   cursor: pointer;
   transition: var(--transition-colors), transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 44px; /* Touch target size */
 }
 
 .theme-toggle-button:hover {
@@ -54,6 +55,8 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   z-index: 999;
   min-width: 200px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .theme-option-button {
@@ -61,13 +64,15 @@
   align-items: center;
   gap: 12px;
   width: 100%;
-  padding: 10px 12px;
+  padding: 12px 16px;
   background: transparent;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: var(--transition-colors), transform 0.1s ease;
   text-align: left;
+  min-height: 44px; /* Touch target size */
+  font-size: 14px;
 }
 
 .theme-option-button:hover {
@@ -104,11 +109,46 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .theme-toggle-button {
-    padding: 10px 14px;
+    padding: 10px 12px;
     font-size: 14px;
+    gap: 6px;
   }
   
   .theme-dropdown {
-    min-width: 180px;
+    min-width: 250px;
+    left: auto;
+    right: 0;
+    max-width: 90vw;
+  }
+  
+  .theme-option-button {
+    padding: 14px 16px;
+    font-size: 16px;
+    gap: 14px;
+  }
+  
+  .color-dot {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-toggle-button {
+    padding: 8px 10px;
+    font-size: 13px;
+    min-height: 40px;
+  }
+  
+  .theme-dropdown {
+    min-width: 200px;
+    max-width: 85vw;
+    padding: 6px;
+  }
+  
+  .theme-option-button {
+    padding: 12px 14px;
+    font-size: 15px;
+    min-height: 48px;
   }
 }
