@@ -333,6 +333,76 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
           box-shadow: 0 12px 48px ${theme.colors.primary}30, 0 0 0 1px ${theme.colors.primary}20 !important;
           transform: translateY(-2px) !important;
         }
+        
+        /* Dynamic Hero Grid Pattern */
+        .hero-grid-pattern {
+          background-image: 
+            linear-gradient(to right, ${theme.colors.primary} 1px, transparent 1px),
+            linear-gradient(to bottom, ${theme.colors.primary} 1px, transparent 1px) !important;
+          background-size: 50px 50px !important;
+        }
+        
+        /* Dynamic Hero Title Gradient - Beautiful Same Color Flow */
+        .hero-title-gradient {
+          background: linear-gradient(
+            to right, 
+            ${theme.colors.primary}80, 
+            ${theme.colors.primary}, 
+            ${theme.colors.primary}
+          ) !important;
+          -webkit-background-clip: text !important;
+          background-clip: text !important;
+          -webkit-text-fill-color: transparent !important;
+          animation: theme-gradient-shine 3s ease-in-out infinite !important;
+        }
+        
+        @keyframes theme-gradient-shine {
+          0% { 
+            background: linear-gradient(
+              to right, 
+              ${theme.colors.primary}60, 
+              ${theme.colors.primary}, 
+              ${theme.colors.primary}
+            ) !important;
+          }
+          50% { 
+            background: linear-gradient(
+              to right, 
+              ${theme.colors.primary}, 
+              ${theme.colors.primary}, 
+              ${theme.colors.primary}60
+            ) !important;
+          }
+          100% { 
+            background: linear-gradient(
+              to right, 
+              ${theme.colors.primary}60, 
+              ${theme.colors.primary}, 
+              ${theme.colors.primary}
+            ) !important;
+          }
+        }
+        
+        /* Dynamic Hero Arrow Button Glow */
+        .hero-arrow-button {
+          color: ${theme.colors.primary} !important;
+          filter: drop-shadow(0 0 8px ${theme.colors.primary}60) !important;
+          background: transparent !important;
+          border: none !important;
+        }
+        
+        .hero-arrow-button:hover {
+          color: ${theme.colors.primary} !important;
+          filter: drop-shadow(0 0 12px ${theme.colors.primary}80) !important;
+          background: transparent !important;
+        }
+        
+        /* CSS Custom Properties for dynamic theming */
+        :root {
+          --theme-primary: ${theme.colors.primary};
+          --theme-secondary: ${theme.colors.secondary};
+          --theme-accent: ${theme.colors.accent};
+        }
       `;
       
       document.head.appendChild(style);

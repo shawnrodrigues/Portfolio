@@ -8,7 +8,7 @@ interface HeroProps {
 
 export default function Hero({ profile, onNavigate }: HeroProps) {
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <section id="about" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-10">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"></div>
 
       <div className="absolute inset-0">
@@ -16,17 +16,17 @@ export default function Hero({ profile, onNavigate }: HeroProps) {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-700"></div>
       </div>
 
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" style={{
+      <div className="absolute inset-0 opacity-15">
+        <div className="absolute inset-0 hero-grid-pattern" style={{
           backgroundImage: `
-            linear-gradient(to right, var(--theme-primary, #06b6d4) 1px, transparent 1px),
-            linear-gradient(to bottom, var(--theme-primary, #06b6d4) 1px, transparent 1px)
+            linear-gradient(to right, #06b6d4 1px, transparent 1px),
+            linear-gradient(to bottom, #06b6d4 1px, transparent 1px)
           `,
           backgroundSize: '50px 50px'
         }}></div>
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="mb-8 inline-block">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full blur-xl opacity-50 animate-pulse"></div>
@@ -46,7 +46,7 @@ export default function Hero({ profile, onNavigate }: HeroProps) {
           </span>
         </div>
 
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent animate-gradient bg-300">
+        <h1 className="text-6xl md:text-8xl font-bold mb-2 bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-400 bg-clip-text text-transparent hero-title-gradient px-2 py-6 leading-loose">
           {profile.name}
         </h1>
 
@@ -74,12 +74,15 @@ export default function Hero({ profile, onNavigate }: HeroProps) {
         </div>
       </div>
 
-      <button
-        onClick={() => onNavigate('experience')}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-cyan-400 animate-bounce"
-      >
-        <ChevronDown size={32} />
-      </button>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center">
+        <button
+          onClick={() => onNavigate('experience')}
+          className="text-cyan-400 animate-bounce hover:text-cyan-300 transition-all duration-300 border-none bg-transparent hero-arrow-button w-12 h-12 flex items-center justify-center rounded-full p-0"
+          aria-label="Scroll to next section"
+        >
+          <ChevronDown size={28} className="flex-shrink-0" />
+        </button>
+      </div>
     </section>
   );
 }

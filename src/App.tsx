@@ -45,14 +45,16 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white overflow-x-hidden">
+    <div className="min-h-screen bg-slate-950 text-white overflow-x-hidden safe-area-inset" data-active-section={activeSection}>
       <Header profile={profile} onNavigate={handleNavigate} />
-      <Hero profile={profile} onNavigate={handleNavigate} />
-      <Experience experiences={experience} />
-      <Projects projects={projects} />
-      <Skills skills={skills} />
-      <Education education={education} />
-      <Certifications certifications={certifications} />
+      <main>
+        <Hero profile={profile} onNavigate={handleNavigate} />
+        <Experience experiences={experience} />
+        <Projects projects={projects} />
+        <Skills skills={skills} />
+        <Education education={education} />
+        <Certifications certifications={certifications} />
+      </main>
       <Footer />
     </div>
   );

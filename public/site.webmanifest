@@ -1,0 +1,22 @@
+{
+  "name": "Shawn Rodrigues - Portfolio",
+  "short_name": "SR Portfolio",
+  "description": "Professional Portfolio - Software Developer",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#06b6d4",
+  "background_color": "#0f172a",
+  "display": "standalone",
+  "start_url": "/",
+  "orientation": "portrait-primary"
+}
