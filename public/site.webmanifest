@@ -4,14 +4,14 @@
   "description": "Professional Portfolio - Software Developer",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/favicon.ico",
       "sizes": "32x32",
-      "type": "image/svg+xml"
+      "type": "image/x-icon"
     },
     {
-      "src": "/apple-touch-icon.svg",
+      "src": "/apple-touch-icon.png",
       "sizes": "180x180",
-      "type": "image/svg+xml"
+      "type": "image/png"
     }
   ],
   "theme_color": "#06b6d4",
