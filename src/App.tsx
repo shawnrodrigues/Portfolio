@@ -6,8 +6,9 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
+import ExtracurricularActivities from './components/ExtracurricularActivities';
 import Footer from './components/Footer';
-import { profile, education, certifications, projects, skills, experience } from './data/portfolioData';
+import { profile, education, certifications, projects, skills, experience, extracurricularActivities } from './data/portfolioData';
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
@@ -54,6 +55,7 @@ function App() {
         <Skills skills={skills} />
         <Education education={education} />
         <Certifications certifications={certifications} />
+        <ExtracurricularActivities activities={extracurricularActivities} />
       </main>
       <Footer />
     </div>

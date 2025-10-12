@@ -1,4 +1,4 @@
-import { Profile, Education, Certification, Project, Skill, Experience } from '../types/portfolio';
+import { Profile, Education, Certification, Project, Skill, Experience, YouTubeChannel, ExtracurricularActivity } from '../types/portfolio';
 
 export const profile: Profile = {
   name: 'Shawn Ignace Rodrigues',
@@ -189,6 +189,66 @@ export interface Theme {
     border: string;
   };
 }
+
+export const youtubeChannel: YouTubeChannel = {
+  id: '1',
+  channelName: 'Coconut Gamer',
+  channelUrl: 'http://youtube.com/coconutgamer', // Update with your actual channel URL
+  logoUrl: 'https://yt3.googleusercontent.com/hGtINWDVh5Dp3qachWh7tO5HD7I9l3PAxDevKNbHhWu3yBvzms1AqWzmG6wfrykY0pyAJZpXHA=s160-c-k-c0x00ffffff-no-rj', // Update with your actual channel logo URL
+  description: 'Welcome to Coconut Gamer! Join me as I explore the latest games, share tech reviews, and create tutorials. From gaming adventures to tech insights, this channel is all about discovering and sharing the digital world together.',
+  subscriberCount: '1K+', // Update with actual numbers
+  totalViews: '50K+', // Update with actual numbers
+  videoCount: '25+', // Update with actual numbers
+  featuredVideos: [
+    {
+      id: '1',
+      title: 'How To Migrate Pterodactyl Panel From One Machine To Other Machine | Latest Tutorial!!',
+      description: 'A comprehensive guide to starting your journey in game development',
+      videoUrl: 'https://www.youtube.com/watch?v=7HYf7b8vagY', // Update with actual video URLs
+      thumbnailUrl: 'https://img.youtube.com/vi/7HYf7b8vagY/maxresdefault.jpg', // Update with actual thumbnail
+      views: '2.2K',
+      publishedDate: '2024-08'
+    },
+    {
+      id: '2',
+      title: 'Tech Review: Latest Gaming Hardware',
+      description: 'The process of installing the Pterodactyl panel without the need for a domain.',
+      videoUrl: 'https://www.youtube.com/watch?v=Rcsd7AmFnAc',
+      thumbnailUrl: 'https://img.youtube.com/vi/Rcsd7AmFnAc/maxresdefault.jpg',
+      views: '20K',
+      publishedDate: 'Feb 8, 2024'
+    },
+    {
+      id: '3',
+      title: 'How to set up a database in Pterodactyl ',
+      description: 'Step-by-step tutorial on creating a simple game from scratch',
+      videoUrl: 'https://www.youtube.com/watch?v=BJdS_jIYxEM&t=17s', // Update with actual video URLs
+      thumbnailUrl: 'https://img.youtube.com/vi/BJdS_jIYxEM/maxresdefault.jpg', // Update with actual thumbnail
+      views: '17K',
+      publishedDate: 'Feb 15, 2024'
+    }
+  ]
+};
+
+export const extracurricularActivities: ExtracurricularActivity[] = [
+  {
+    id: '1',
+    title: 'YouTube Content Creator',
+    type: 'youtube',
+    description: 'Creating educational and entertaining content about gaming, technology, and tutorials',
+    startDate: '2020',
+    endDate: null,
+    status: 'active',
+    details: youtubeChannel,
+    achievements: [
+      'Built a community of 1K+ subscribers',
+      'Generated 50K+ total views across all content',
+      'Created 25+ educational and gaming videos',
+      'Established consistent content creation schedule'
+    ]
+  }
+  // Add more extracurricular activities here in the future
+];
 
 export const themes: Theme[] = [
   {

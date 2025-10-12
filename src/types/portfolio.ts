@@ -57,3 +57,35 @@ export interface Experience {
   description: string;
   achievements: string[];
 }
+
+export interface YouTubeChannel {
+  id: string;
+  channelName: string;
+  channelUrl: string;
+  description: string;
+  logoUrl?: string;
+  subscriberCount?: string;
+  totalViews?: string;
+  videoCount?: string;
+  featuredVideos: {
+    id: string;
+    title: string;
+    description: string;
+    videoUrl: string;
+    thumbnailUrl?: string;
+    views?: string;
+    publishedDate: string;
+  }[];
+}
+
+export interface ExtracurricularActivity {
+  id: string;
+  title: string;
+  type: 'youtube' | 'blog' | 'volunteer' | 'organization' | 'other';
+  description: string;
+  startDate?: string;
+  endDate?: string | null;
+  status: 'active' | 'completed';
+  details: YouTubeChannel | any; // Can be extended for other activity types
+  achievements?: string[];
+}
