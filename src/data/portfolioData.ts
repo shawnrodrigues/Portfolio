@@ -3,10 +3,11 @@ import { Profile, Education, Certification, Project, Skill, Experience, YouTubeC
 export const profile: Profile = {
   name: 'Shawn Ignace Rodrigues',
   title: 'Computer Engineer',
-  bio: ' I’m a Computer Engineering student passionate about technology, software development, and creative digital projects. With a strong foundation in programming, networking, and cybersecurity from my Diploma and B.E. in Computer Engineering, I love building tools that make digital workflows smarter, a program designed to make searching inside images and PDFs effortless. Alongside my technical journey, I also create content on YouTube under the name Coconut Gamer, where I explore gaming, tech reviews, and tutorials.',
+  bio: "I'm a Computer Engineering student passionate about technology, software development, and creative digital projects. With a strong foundation in programming, networking, and cybersecurity from my Diploma and B.E. in Computer Engineering, I love building tools that make digital workflows smarter, a program designed to make searching inside images and PDFs effortless. Alongside my technical journey, I also create content on YouTube under the name Coconut Gamer, where I explore gaming, tech reviews, and tutorials.",
   email: 'shawn.rodrigues3308@gmail.com',
   github: 'https://github.com/shawnrodrigues',
   linkedin: 'https://www.linkedin.com/in/shawn3308/',
+  discord: 'coconutplayz', // Update with your actual Discord username
   avatarUrl: 'https://i.postimg.cc/MHt6fY3f/IMG-20250830-154946.jpg'
 };
 

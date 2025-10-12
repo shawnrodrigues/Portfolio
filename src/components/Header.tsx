@@ -1,6 +1,7 @@
 import { Github, Linkedin, Mail, Menu, X, Palette, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { Profile } from '../types/portfolio';
+import DiscordIcon from './DiscordIcon';
 
 interface HeaderProps {
   profile: Profile;
@@ -534,6 +535,17 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
             >
               <Mail size={20} />
             </a>
+            {profile.discord && (
+              <a
+                href={`https://discord.com/users/${profile.discord}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10 rounded-lg transition-all"
+                title="Discord"
+              >
+                <DiscordIcon size={20} />
+              </a>
+            )}
           </div>
 
           <div className="flex items-center gap-4">
@@ -631,6 +643,17 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
               >
                 <Mail size={20} />
               </a>
+              {profile.discord && (
+                <a
+                  href={`https://discord.com/users/${profile.discord}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10 rounded-lg transition-all"
+                  title="Discord"
+                >
+                  <DiscordIcon size={20} />
+                </a>
+              )}
             </div>
           </div>
         )}

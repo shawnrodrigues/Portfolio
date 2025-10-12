@@ -5,6 +5,7 @@ export interface Profile {
   email: string;
   github: string;
   linkedin: string;
+  discord?: string;
   avatarUrl: string;
 }
 
