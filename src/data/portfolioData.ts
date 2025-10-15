@@ -321,5 +321,285 @@ export const themes: Theme[] = [
       textSecondary: '#6b7280',
       border: '#fed7aa'
     }
+  },
+  {
+    id: 'pink',
+    name: 'Rose Pink',
+    colors: {
+      primary: '#ec4899',
+      secondary: '#be185d',
+      accent: '#f472b6',
+      background: '#ffffff',
+      surface: '#fdf2f8',
+      text: '#1f2937',
+      textSecondary: '#6b7280',
+      border: '#fce7f3'
+    }
+  },
+  {
+    id: 'red',
+    name: 'Fire Red',
+    colors: {
+      primary: '#ef4444',
+      secondary: '#dc2626',
+      accent: '#f87171',
+      background: '#ffffff',
+      surface: '#fef2f2',
+      text: '#1f2937',
+      textSecondary: '#6b7280',
+      border: '#fecaca'
+    }
+  },
+  {
+    id: 'indigo',
+    name: 'Deep Indigo',
+    colors: {
+      primary: '#6366f1',
+      secondary: '#4f46e5',
+      accent: '#818cf8',
+      background: '#ffffff',
+      surface: '#f8fafc',
+      text: '#1f2937',
+      textSecondary: '#6b7280',
+      border: '#e0e7ff'
+    }
+  },
+  {
+    id: 'teal',
+    name: 'Ocean Teal',
+    colors: {
+      primary: '#14b8a6',
+      secondary: '#0f766e',
+      accent: '#5eead4',
+      background: '#ffffff',
+      surface: '#f0fdfa',
+      text: '#1f2937',
+      textSecondary: '#6b7280',
+      border: '#99f6e4'
+    }
+  },
+  {
+    id: 'yellow',
+    name: 'Golden Yellow',
+    colors: {
+      primary: '#eab308',
+      secondary: '#ca8a04',
+      accent: '#fde047',
+      background: '#ffffff',
+      surface: '#fefce8',
+      text: '#1f2937',
+      textSecondary: '#6b7280',
+      border: '#fef3c7'
+    }
+  },
+  {
+    id: 'emerald',
+    name: 'Emerald Green',
+    colors: {
+      primary: '#10b981',
+      secondary: '#047857',
+      accent: '#6ee7b7',
+      background: '#ffffff',
+      surface: '#ecfdf5',
+      text: '#1f2937',
+      textSecondary: '#6b7280',
+      border: '#a7f3d0'
+    }
+  },
+  {
+    id: 'violet',
+    name: 'Electric Violet',
+    colors: {
+      primary: '#8b5cf6',
+      secondary: '#7c3aed',
+      accent: '#c4b5fd',
+      background: '#ffffff',
+      surface: '#faf5ff',
+      text: '#1f2937',
+      textSecondary: '#6b7280',
+      border: '#e9d5ff'
+    }
+  },
+  {
+    id: 'cyan',
+    name: 'Bright Cyan',
+    colors: {
+      primary: '#06b6d4',
+      secondary: '#0891b2',
+      accent: '#67e8f9',
+      background: '#ffffff',
+      surface: '#ecfeff',
+      text: '#1f2937',
+      textSecondary: '#6b7280',
+      border: '#a5f3fc'
+    }
+  },
+  {
+    id: 'lime',
+    name: 'Electric Lime',
+    colors: {
+      primary: '#65a30d',
+      secondary: '#4d7c0f',
+      accent: '#a3e635',
+      background: '#ffffff',
+      surface: '#f7fee7',
+      text: '#1f2937',
+      textSecondary: '#6b7280',
+      border: '#d9f99d'
+    }
+  },
+  {
+    id: 'amber',
+    name: 'Warm Amber',
+    colors: {
+      primary: '#d97706',
+      secondary: '#b45309',
+      accent: '#fbbf24',
+      background: '#ffffff',
+      surface: '#fffbeb',
+      text: '#1f2937',
+      textSecondary: '#6b7280',
+      border: '#fde68a'
+    }
+  },
+  {
+    id: 'slate',
+    name: 'Cool Slate',
+    colors: {
+      primary: '#64748b',
+      secondary: '#475569',
+      accent: '#94a3b8',
+      background: '#ffffff',
+      surface: '#f8fafc',
+      text: '#1f2937',
+      textSecondary: '#6b7280',
+      border: '#e2e8f0'
+    }
+  },
+  {
+    id: 'rose',
+    name: 'Romantic Rose',
+    colors: {
+      primary: '#f43f5e',
+      secondary: '#e11d48',
+      accent: '#fb7185',
+      background: '#ffffff',
+      surface: '#fff1f2',
+      text: '#1f2937',
+      textSecondary: '#6b7280',
+      border: '#fda4af'
+    }
+  },
+  {
+    id: 'sky',
+    name: 'Sky Blue',
+    colors: {
+      primary: '#0ea5e9',
+      secondary: '#0284c7',
+      accent: '#38bdf8',
+      background: '#ffffff',
+      surface: '#f0f9ff',
+      text: '#1f2937',
+      textSecondary: '#6b7280',
+      border: '#7dd3fc'
+    }
+  },
+  {
+    id: 'fuchsia',
+    name: 'Neon Fuchsia',
+    colors: {
+      primary: '#d946ef',
+      secondary: '#c026d3',
+      accent: '#e879f9',
+      background: '#ffffff',
+      surface: '#fdf4ff',
+      text: '#1f2937',
+      textSecondary: '#6b7280',
+      border: '#f0abfc'
+    }
+  },
+  {
+    id: 'darkPurple',
+    name: 'Dark Purple',
+    colors: {
+      primary: '#a855f7',
+      secondary: '#9333ea',
+      accent: '#c084fc',
+      background: '#0c0a09',
+      surface: '#1c1917',
+      text: '#f5f5f4',
+      textSecondary: '#a8a29e',
+      border: '#44403c'
+    }
+  },
+  {
+    id: 'darkGreen',
+    name: 'Dark Forest',
+    colors: {
+      primary: '#22c55e',
+      secondary: '#16a34a',
+      accent: '#4ade80',
+      background: '#0c0a09',
+      surface: '#1c1917',
+      text: '#f5f5f4',
+      textSecondary: '#a8a29e',
+      border: '#44403c'
+    }
+  },
+  {
+    id: 'darkRed',
+    name: 'Dark Crimson',
+    colors: {
+      primary: '#f87171',
+      secondary: '#ef4444',
+      accent: '#fca5a5',
+      background: '#0c0a09',
+      surface: '#1c1917',
+      text: '#f5f5f4',
+      textSecondary: '#a8a29e',
+      border: '#44403c'
+    }
+  },
+  {
+    id: 'midnight',
+    name: 'Midnight Blue',
+    colors: {
+      primary: '#60a5fa',
+      secondary: '#3b82f6',
+      accent: '#93c5fd',
+      background: '#030712',
+      surface: '#111827',
+      text: '#f9fafb',
+      textSecondary: '#9ca3af',
+      border: '#374151'
+    }
+  },
+  {
+    id: 'neon',
+    name: 'Neon Glow',
+    colors: {
+      primary: '#00ff88',
+      secondary: '#00cc6a',
+      accent: '#44ffaa',
+      background: '#0a0a0a',
+      surface: '#1a1a1a',
+      text: '#ffffff',
+      textSecondary: '#cccccc',
+      border: '#333333'
+    }
+  },
+  {
+    id: 'sunset',
+    name: 'Tropical Sunset',
+    colors: {
+      primary: '#ff6b35',
+      secondary: '#ff5722',
+      accent: '#ff8a50',
+      background: '#fff8f5',
+      surface: '#fff0e6',
+      text: '#2d1b69',
+      textSecondary: '#5a4fcf',
+      border: '#ffcc99'
+    }
   }
 ];

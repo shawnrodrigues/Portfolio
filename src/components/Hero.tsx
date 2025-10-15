@@ -1,4 +1,3 @@
-import { ChevronDown } from 'lucide-react';
 import { Profile } from '../types/portfolio';
 
 interface HeroProps {
@@ -8,7 +7,7 @@ interface HeroProps {
 
 export default function Hero({ profile, onNavigate }: HeroProps) {
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-10">
+    <section id="about" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"></div>
 
       <div className="absolute inset-0">
@@ -72,16 +71,6 @@ export default function Hero({ profile, onNavigate }: HeroProps) {
             Get In Touch
           </button>
         </div>
-      </div>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center">
-        <button
-          onClick={() => onNavigate('experience')}
-          className="text-cyan-400 animate-bounce hover:text-cyan-300 transition-all duration-300 border-none bg-transparent hero-arrow-button w-12 h-12 flex items-center justify-center rounded-full p-0"
-          aria-label="Scroll to next section"
-        >
-          <ChevronDown size={28} className="flex-shrink-0" />
-        </button>
       </div>
     </section>
   );

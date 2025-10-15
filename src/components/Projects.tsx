@@ -1,11 +1,13 @@
 import { Code2, ExternalLink, Github, Sparkles } from 'lucide-react';
 import { Project } from '../types/portfolio';
+import { useTheme } from '../contexts/ThemeContext';
 
 interface ProjectsProps {
   projects: Project[];
 }
 
 export default function Projects({ projects }: ProjectsProps) {
+  const { currentTheme } = useTheme();
   return (
     <section id="projects" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"></div>
@@ -16,7 +18,7 @@ export default function Projects({ projects }: ProjectsProps) {
           <div className="inline-block p-2 sm:p-3 bg-cyan-500/10 rounded-xl mb-4">
             <Code2 className="text-cyan-400" size={24} />
           </div>
-          <h2 className="text-3xl xs:text-4xl sm:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4 leading-tight">
+          <h2 className="text-4xl xs:text-5xl sm:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4 leading-tight">
             Featured Projects
           </h2>
           <p className="text-slate-400 text-base sm:text-lg px-4 sm:px-0">Building the future, one project at a time</p>
@@ -28,6 +30,12 @@ export default function Projects({ projects }: ProjectsProps) {
               key={project.id}
               className="group relative bg-slate-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-4 sm:p-6 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20 hover:-translate-y-2 animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.setProperty('--title-color', currentTheme.colors.primary);
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.setProperty('--title-color', 'white');
+              }}
             >
               {project.featured && (
                 <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full p-1.5 sm:p-2 shadow-lg shadow-cyan-500/50">
@@ -36,7 +44,10 @@ export default function Projects({ projects }: ProjectsProps) {
               )}
 
               <div className="mb-4">
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 group-hover:text-cyan-400 transition-colors leading-tight">
+                <h3 
+                  className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 transition-colors leading-tight"
+                  style={{ color: 'var(--title-color, white)' }}
+                >
                   {project.title}
                 </h3>
                 <p className="text-slate-300 leading-relaxed mb-4 text-sm sm:text-base">

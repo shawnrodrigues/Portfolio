@@ -2,6 +2,7 @@ import { Github, Linkedin, Mail, Menu, X, Palette, ChevronDown } from 'lucide-re
 import { useState } from 'react';
 import { Profile } from '../types/portfolio';
 import DiscordIcon from './DiscordIcon';
+import { useTheme } from '../contexts/ThemeContext';
 
 interface HeaderProps {
   profile: Profile;
@@ -11,29 +12,12 @@ interface HeaderProps {
 export default function Header({ profile, onNavigate }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isThemeOpen, setIsThemeOpen] = useState(false);
-
-  // Simple theme options without context dependency
-  const themes = [
-    { id: 'default', name: 'Default Blue', colors: { primary: '#3b82f6', secondary: '#1e40af', accent: '#06b6d4' } },
-    { id: 'dark', name: 'Dark Mode', colors: { primary: '#60a5fa', secondary: '#3b82f6', accent: '#22d3ee' } },
-    { id: 'purple', name: 'Purple Dream', colors: { primary: '#8b5cf6', secondary: '#7c3aed', accent: '#a78bfa' } },
-    { id: 'green', name: 'Nature Green', colors: { primary: '#10b981', secondary: '#059669', accent: '#34d399' } },
-    { id: 'orange', name: 'Sunset Orange', colors: { primary: '#f97316', secondary: '#ea580c', accent: '#fb923c' } },
-    { id: 'pink', name: 'Rose Pink', colors: { primary: '#ec4899', secondary: '#be185d', accent: '#f472b6' } },
-    { id: 'red', name: 'Fire Red', colors: { primary: '#ef4444', secondary: '#dc2626', accent: '#f87171' } },
-    { id: 'indigo', name: 'Deep Indigo', colors: { primary: '#6366f1', secondary: '#4f46e5', accent: '#818cf8' } },
-    { id: 'teal', name: 'Ocean Teal', colors: { primary: '#14b8a6', secondary: '#0f766e', accent: '#5eead4' } },
-    { id: 'yellow', name: 'Golden Yellow', colors: { primary: '#eab308', secondary: '#ca8a04', accent: '#fde047' } },
-    { id: 'emerald', name: 'Emerald Green', colors: { primary: '#10b981', secondary: '#047857', accent: '#6ee7b7' } },
-    { id: 'violet', name: 'Electric Violet', colors: { primary: '#8b5cf6', secondary: '#7c3aed', accent: '#c4b5fd' } }
-  ];
-
-  const [currentTheme, setCurrentTheme] = useState(themes[0]);
+  const { currentTheme, availableThemes, setTheme } = useTheme();
 
   const handleThemeChange = (themeId: string) => {
-    const theme = themes.find(t => t.id === themeId);
+    const theme = availableThemes.find(t => t.id === themeId);
     if (theme) {
-      setCurrentTheme(theme);
+      setTheme(themeId);
       
       // Replace all blue colors with theme colors
       const style = document.createElement('style');
@@ -431,12 +415,12 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
       <nav className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center font-bold text-white shadow-lg shadow-cyan-500/50">
-              {profile.name.charAt(0)}
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent text-gradient-fix header-name-text">
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent text-gradient-fix header-name-text hover:opacity-80 transition-opacity cursor-pointer"
+            >
               {profile.name}
-            </span>
+            </button>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
@@ -474,39 +458,43 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
                     className="fixed inset-0 z-10"
                     onClick={() => setIsThemeOpen(false)}
                   />
-                  <div className="absolute right-0 z-20 mt-2 w-48 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-xl border border-cyan-500/20">
+                  <div className="absolute right-0 z-20 mt-2 w-80 max-h-96 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-xl border border-cyan-500/20 overflow-hidden">
                     <div className="p-3 text-sm font-semibold text-slate-300 border-b border-cyan-500/20">
                       Choose Theme
                     </div>
-                    <div className="p-2 space-y-1">
-                      {themes.map((theme) => (
-                        <button
-                          key={theme.id}
-                          onClick={() => handleThemeChange(theme.id)}
-                          className={`flex items-center gap-3 w-full p-2 text-left text-sm rounded-md transition-colors ${
-                            currentTheme.id === theme.id 
-                          }`}
-                        >
-                          <div className="flex gap-1">
-                            <div 
-                              className="w-3 h-3 rounded-full border border-white/20"
-                              style={{ backgroundColor: theme.colors.primary }}
-                            />
-                            <div 
-                              className="w-3 h-3 rounded-full border border-white/20"
-                              style={{ backgroundColor: theme.colors.secondary }}
-                            />
-                            <div 
-                              className="w-3 h-3 rounded-full border border-white/20"
-                              style={{ backgroundColor: theme.colors.accent }}
-                            />
-                          </div>
-                          <span className="flex-1">{theme.name}</span>
-                          {currentTheme.id === theme.id && (
-                            <div className="text-cyan-400 text-xs">✓</div>
-                          )}
-                        </button>
-                      ))}
+                    <div className="p-3 max-h-80 overflow-y-auto">
+                      <div className="grid grid-cols-2 gap-2">
+                        {availableThemes.map((theme) => (
+                          <button
+                            key={theme.id}
+                            onClick={() => handleThemeChange(theme.id)}
+                            className={`flex items-center gap-2 w-full p-2 text-left text-xs rounded-md transition-colors ${
+                              currentTheme.id === theme.id 
+                                ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/50' 
+                                : 'text-slate-200 hover:bg-slate-700/50 border border-transparent'
+                            }`}
+                          >
+                            <div className="flex gap-0.5">
+                              <div 
+                                className="w-2.5 h-2.5 rounded-full border border-white/20"
+                                style={{ backgroundColor: theme.colors.primary }}
+                              />
+                              <div 
+                                className="w-2.5 h-2.5 rounded-full border border-white/20"
+                                style={{ backgroundColor: theme.colors.secondary }}
+                              />
+                              <div 
+                                className="w-2.5 h-2.5 rounded-full border border-white/20"
+                                style={{ backgroundColor: theme.colors.accent }}
+                              />
+                            </div>
+                            <span className="flex-1 truncate">{theme.name}</span>
+                            {currentTheme.id === theme.id && (
+                              <div className="text-cyan-400 text-xs">✓</div>
+                            )}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </>
@@ -565,35 +553,37 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
                     className="fixed inset-0 z-10"
                     onClick={() => setIsThemeOpen(false)}
                   />
-                  <div className="absolute right-0 z-20 mt-2 w-44 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-xl border border-cyan-500/20">
+                  <div className="absolute right-0 z-20 mt-2 w-72 max-h-80 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-xl border border-cyan-500/20 overflow-hidden">
                     <div className="p-2 text-xs font-semibold text-slate-300 border-b border-cyan-500/20">
                       Choose Theme
                     </div>
-                    <div className="p-1 space-y-1">
-                      {themes.map((theme) => (
-                        <button
-                          key={theme.id}
-                          onClick={() => handleThemeChange(theme.id)}
-                          className={`flex items-center gap-2 w-full p-2 text-left text-xs rounded transition-colors ${
-                            currentTheme.id === theme.id 
-                              ? 'bg-cyan-500/20 text-cyan-300' 
-                              : 'text-slate-200 hover:bg-slate-700/50'
-                          }`}
-                        >
-                          <div className="flex gap-1">
-                            <div 
-                              className="w-2 h-2 rounded-full"
-                              style={{ backgroundColor: theme.colors.primary }}
-                            />
-                            <div 
-                              className="w-2 h-2 rounded-full"
-                              style={{ backgroundColor: theme.colors.secondary }}
-                            />
-                          </div>
-                          <span className="flex-1">{theme.name}</span>
-                          {currentTheme.id === theme.id && <span className="text-cyan-400">✓</span>}
-                        </button>
-                      ))}
+                    <div className="p-2 max-h-64 overflow-y-auto">
+                      <div className="grid grid-cols-2 gap-1.5">
+                        {availableThemes.map((theme) => (
+                          <button
+                            key={theme.id}
+                            onClick={() => handleThemeChange(theme.id)}
+                            className={`flex items-center gap-1.5 w-full p-1.5 text-left text-xs rounded transition-colors ${
+                              currentTheme.id === theme.id 
+                                ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/50' 
+                                : 'text-slate-200 hover:bg-slate-700/50 border border-transparent'
+                            }`}
+                          >
+                            <div className="flex gap-0.5">
+                              <div 
+                                className="w-2 h-2 rounded-full border border-white/20"
+                                style={{ backgroundColor: theme.colors.primary }}
+                              />
+                              <div 
+                                className="w-2 h-2 rounded-full border border-white/20"
+                                style={{ backgroundColor: theme.colors.secondary }}
+                              />
+                            </div>
+                            <span className="flex-1 truncate text-[10px]">{theme.name}</span>
+                            {currentTheme.id === theme.id && <span className="text-cyan-400 text-[10px]">✓</span>}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </>

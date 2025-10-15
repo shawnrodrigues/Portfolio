@@ -209,10 +209,10 @@ export default function ExtracurricularActivities({ activities }: Extracurricula
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-block p-2 sm:p-3 bg-purple-500/10 rounded-xl mb-4">
-            <Activity className="text-purple-400" size={24} />
+          <div className="inline-block p-2 sm:p-3 bg-cyan-500/10 rounded-xl mb-4">
+            <Activity className="text-cyan-400" size={24} />
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl xs:text-5xl sm:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4 leading-tight">
             Extracurricular Activities
           </h2>
           <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto px-4">

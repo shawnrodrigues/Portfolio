@@ -22,7 +22,7 @@ export default function Experience({ experiences }: ExperienceProps) {
           <div className="inline-block p-2 sm:p-3 bg-cyan-500/10 rounded-xl mb-4">
             <Briefcase className="text-cyan-400" size={24} />
           </div>
-          <h2 className="text-3xl xs:text-4xl sm:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4 leading-tight">
+          <h2 className="text-4xl xs:text-5xl sm:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4 leading-tight">
             Experience
           </h2>
           <p className="text-slate-400 text-base sm:text-lg px-4 sm:px-0">My professional journey</p>
