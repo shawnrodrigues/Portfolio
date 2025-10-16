@@ -1,11 +1,13 @@
 import { Cpu, Zap } from 'lucide-react';
 import { Skill } from '../types/portfolio';
+import { useTheme } from '../contexts/ThemeContext';
 
 interface SkillsProps {
   skills: Skill[];
 }
 
 export default function Skills({ skills }: SkillsProps) {
+  const { currentTheme } = useTheme();
   const categories = Array.from(new Set(skills.map(s => s.category)));
 
   return (
@@ -13,7 +15,14 @@ export default function Skills({ skills }: SkillsProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div 
+        className={`relative z-10 max-w-7xl mx-auto ${currentTheme ? 'skills-section' : ''}`}
+        style={currentTheme ? {
+          '--theme-primary': currentTheme.colors.primary,
+          '--theme-secondary': currentTheme.colors.secondary,
+          '--theme-accent': currentTheme.colors.accent
+        } as React.CSSProperties : {}}
+      >
         <div className="text-center mb-12 sm:mb-16">
           <div className="inline-block p-2 sm:p-3 bg-cyan-500/10 rounded-xl mb-4">
             <Cpu className="text-cyan-400" size={24} />
@@ -41,10 +50,10 @@ export default function Skills({ skills }: SkillsProps) {
                   {categorySkills.map((skill, index) => (
                     <li
                       key={skill.id}
-                      className="flex items-center gap-2 sm:gap-3 text-slate-300 group animate-slide-up"
+                      className="flex items-center gap-3 sm:gap-4 text-slate-300 group animate-slide-up skill-item"
                       style={{ animationDelay: `${index * 50}ms` }}
                     >
-                      <span className="text-cyan-400 text-base sm:text-lg flex-shrink-0">▹</span>
+                      <div className="skill-bullet-outline flex-shrink-0"></div>
                       <span className="group-hover:text-white group-hover:translate-x-1 transition-all duration-200 text-sm sm:text-base">
                         {skill.name}
                       </span>

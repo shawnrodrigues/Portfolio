@@ -469,7 +469,7 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
                             key={theme.id}
                             onClick={() => handleThemeChange(theme.id)}
                             className={`flex items-center gap-2 w-full p-2 text-left text-xs rounded-md transition-colors ${
-                              currentTheme.id === theme.id 
+                              currentTheme?.id === theme.id 
                                 ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/50' 
                                 : 'text-slate-200 hover:bg-slate-700/50 border border-transparent'
                             }`}
@@ -489,7 +489,7 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
                               />
                             </div>
                             <span className="flex-1 truncate">{theme.name}</span>
-                            {currentTheme.id === theme.id && (
+                            {currentTheme?.id === theme.id && (
                               <div className="text-cyan-400 text-xs">✓</div>
                             )}
                           </button>
@@ -564,7 +564,7 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
                             key={theme.id}
                             onClick={() => handleThemeChange(theme.id)}
                             className={`flex items-center gap-1.5 w-full p-1.5 text-left text-xs rounded transition-colors ${
-                              currentTheme.id === theme.id 
+                              currentTheme?.id === theme.id 
                                 ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/50' 
                                 : 'text-slate-200 hover:bg-slate-700/50 border border-transparent'
                             }`}
@@ -580,7 +580,7 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
                               />
                             </div>
                             <span className="flex-1 truncate text-[10px]">{theme.name}</span>
-                            {currentTheme.id === theme.id && <span className="text-cyan-400 text-[10px]">✓</span>}
+                            {currentTheme?.id === theme.id && <span className="text-cyan-400 text-[10px]">✓</span>}
                           </button>
                         ))}
                       </div>

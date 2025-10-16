@@ -191,7 +191,7 @@ export interface Theme {
   };
 }
 
-export const youtubeChannel: YouTubeChannel = {
+const youtubeChannel: YouTubeChannel = {
   id: '1',
   channelName: 'Coconut Gamer',
   channelUrl: 'http://youtube.com/coconutgamer', // Update with your actual channel URL
@@ -212,7 +212,7 @@ export const youtubeChannel: YouTubeChannel = {
     },
     {
       id: '2',
-      title: 'Tech Review: Latest Gaming Hardware',
+      title: 'How To Install Pterodactyl Panel : No Domain Needed! | 2024 Tutorial',
       description: 'The process of installing the Pterodactyl panel without the need for a domain.',
       videoUrl: 'https://www.youtube.com/watch?v=Rcsd7AmFnAc',
       thumbnailUrl: 'https://img.youtube.com/vi/Rcsd7AmFnAc/maxresdefault.jpg',
@@ -246,6 +246,34 @@ export const extracurricularActivities: ExtracurricularActivity[] = [
       'Generated 50K+ total views across all content',
       'Created 25+ educational and gaming videos',
       'Established consistent content creation schedule'
+    ]
+  },
+  {
+    id: '2',
+    title: 'ZAP-Hosting Official Channel Partner',
+    type: 'other',
+    description: 'Exclusive channel partnership with ZAP-Hosting, Europe\'s leading game server and web hosting provider. Creating engaging content, tutorials, and promoting cutting-edge hosting solutions to empower the gaming community worldwide.',
+    startDate: '2024',
+    endDate: null,
+    status: 'active',
+    details: {
+      partnershipType: 'Official Channel Partner',
+      company: 'ZAP-Hosting',
+      website: 'https://zap-hosting.com/dedicatedservers',
+      logoUrl: 'https://cdn.brandfetch.io/idcW9twIpb/w/800/h/908/theme/light/symbol.png?c=1bxid64Mup7aczewSAYMX&t=1741944027918', // You can replace this with any logo URL
+      description: 'Europe\'s #1 Game Server & Web Hosting Provider',
+      specialties: ['Game Server Hosting', 'Web Hosting', 'VPS Solutions', 'Dedicated Servers'],
+      partnerBenefits: ['Exclusive Content Creation', 'Technical Support', 'Community Engagement', 'Product Innovation'],
+      established: '2010',
+      reach: 'Global Gaming Community'
+    },
+    achievements: [
+      '🎮 Established exclusive partnership with Europe\'s leading hosting provider',
+      '📈 Created high-impact promotional content for gaming server solutions',
+      '🎯 Delivered hosting recommendations to 50K+ gaming community members',
+      '🚀 Collaborated on innovative technical content and tutorials',
+      '⚡ Promoted cutting-edge ZAP-Hosting infrastructure solutions',
+      '🏆 Contributed to ZAP-Hosting\'s community growth and engagement'
     ]
   }
   // Add more extracurricular activities here in the future
