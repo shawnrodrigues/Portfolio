@@ -8,6 +8,7 @@ import Education from './components/Education';
 import Certifications from './components/Certifications';
 import ExtracurricularActivities from './components/ExtracurricularActivities';
 import Footer from './components/Footer';
+import FestiveAnimations from './components/FestiveAnimations';
 import { profile, education, certifications, projects, skills, experience, extracurricularActivities } from './data/portfolioData';
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
         <ExtracurricularActivities activities={extracurricularActivities} />
       </main>
       <Footer />
+      <FestiveAnimations />
     </div>
   );
 }

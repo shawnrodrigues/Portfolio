@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Profile } from '../types/portfolio';
 import DiscordIcon from './DiscordIcon';
 import { useTheme } from '../contexts/ThemeContext';
+import FestiveIndicator from './FestiveToggle';
 
 interface HeaderProps {
   profile: Profile;
@@ -534,6 +535,9 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
                 <DiscordIcon size={20} />
               </a>
             )}
+
+            {/* Festive Indicator - Right Side */}
+            <FestiveIndicator />
           </div>
 
           <div className="flex items-center gap-4">
@@ -588,6 +592,11 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
                   </div>
                 </>
               )}
+            </div>
+
+            {/* Mobile Festive Indicator */}
+            <div className="md:hidden">
+              <FestiveIndicator />
             </div>
 
             <button

@@ -39,11 +39,11 @@ export default function Hero({ profile, onNavigate }: HeroProps) {
           </div>
         </div>
 
-        <div className="mb-4 inline-block px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full">
+        {/* <div className="mb-4 inline-block px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full">
           <span className="text-cyan-400 text-sm font-medium tracking-wider uppercase">
             Available for Opportunities
           </span>
-        </div>
+        </div> */}
 
         <h1 className="text-6xl md:text-8xl font-bold mb-2 bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-400 bg-clip-text text-transparent hero-title-gradient px-2 py-6 leading-loose">
           {profile.name}

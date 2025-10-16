@@ -8,7 +8,7 @@ export const profile: Profile = {
   github: 'https://github.com/shawnrodrigues',
   linkedin: 'https://www.linkedin.com/in/shawn3308/',
   discord: 'coconutplayz', // Update with your actual Discord username
-  avatarUrl: 'https://i.postimg.cc/MHt6fY3f/IMG-20250830-154946.jpg'
+  avatarUrl: ''
 };
 
 export const education: Education[] = [

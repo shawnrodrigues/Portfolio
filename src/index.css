@@ -235,7 +235,7 @@ html, body {
 
 /* Hero Section Specific Fixes for Zoom Levels */
 #about {
-  padding-top: 5rem !important; /* Increase top padding for better header spacing */
+  padding-top: 8rem !important; /* Increased spacing between header name and about section */
 }
 
 /* Container width management for zoom levels - Progressive scaling */
