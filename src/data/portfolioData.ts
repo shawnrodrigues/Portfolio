@@ -146,8 +146,8 @@ export const skills: Skill[] = [
 export const experience: Experience[] = [
   {
     id: '1',
-    company: 'Linux Server & Hosting Experience',
-    position: 'Managing Editor',
+    company: 'Linux Systems & Hosting Infrastructure 💻',
+    position: '',
     location: 'India',
     startDate: 'null',
     endDate: null,

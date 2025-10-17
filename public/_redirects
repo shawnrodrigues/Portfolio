@@ -1,0 +1,9 @@
+# Netlify Redirects Configuration
+# This handles server-side redirects for unknown routes
+
+# Redirect all unknown routes to index.html (SPA fallback)
+/*    /index.html   200
+
+# Optional: Specific redirects if you want to handle certain patterns
+# /old-page    /    301
+# /blog/*      /    301

@@ -1,7 +1,7 @@
 {
-  "name": "Shawn Rodrigues - Portfolio",
+  "name": "Shawn Ignace Rodrigues - Portfolio",
   "short_name": "SR Portfolio",
-  "description": "Professional Portfolio - Software Developer",
+  "description": "Professional Portfolio - Full Stack Developer specializing in React, TypeScript, and modern web technologies",
   "icons": [
     {
       "src": "/favicon.ico",
@@ -11,12 +11,37 @@
     {
       "src": "/apple-touch-icon.png",
       "sizes": "180x180",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "theme_color": "#06b6d4",
   "background_color": "#0f172a",
   "display": "standalone",
   "start_url": "/",
-  "orientation": "portrait-primary"
+  "scope": "/",
+  "orientation": "portrait-primary",
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Desktop view of portfolio"
+    },
+    {
+      "src": "/screenshot-mobile.png", 
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile view of portfolio"
+    }
+  ]
 }

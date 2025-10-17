@@ -10,15 +10,17 @@ import ExtracurricularActivities from './components/ExtracurricularActivities';
 import Footer from './components/Footer';
 import FestiveAnimations from './components/FestiveAnimations';
 import { profile, education, certifications, projects, skills, experience, extracurricularActivities } from './data/portfolioData';
+import { router } from './utils/router';
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
 
   const handleNavigate = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    // Use the router for navigation which handles URL updates
+    router.navigateToSection(sectionId);
+    
+    // Also update local state for active section highlighting
+    setActiveSection(sectionId);
   };
 
   useEffect(() => {
