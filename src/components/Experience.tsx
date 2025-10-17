@@ -12,6 +12,13 @@ export default function Experience({ experiences }: ExperienceProps) {
     return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
   };
 
+  const getDateRange = (exp: ExperienceType) => {
+    if (exp.fixedDate) {
+      return exp.fixedDate;
+    }
+    return `${formatDate(exp.startDate || null)} - ${formatDate(exp.endDate || null)}`;
+  };
+
   return (
     <section id="experience" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"></div>
@@ -49,15 +56,22 @@ export default function Experience({ experiences }: ExperienceProps) {
                       </div>
                       <div className="flex items-center gap-2">
                         <Calendar size={14} className="sm:w-4 sm:h-4 flex-shrink-0" />
-                        <span className="break-words">{formatDate(exp.startDate)} - {formatDate(exp.endDate)}</span>
+                        <span className="break-words">{getDateRange(exp)}</span>
                       </div>
                     </div>
                   </div>
-                  {!exp.endDate && (
-                    <div className="inline-block self-start px-3 sm:px-4 py-1.5 sm:py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full">
-                      <span className="text-cyan-400 text-xs sm:text-sm font-medium">Current</span>
-                    </div>
-                  )}
+                  <div className="flex flex-wrap gap-2">
+                    {exp.isCurrent && (
+                      <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full">
+                        <span className="text-cyan-400 text-xs sm:text-sm font-medium">Current</span>
+                      </div>
+                    )}
+                    {exp.badges && exp.badges.map((badge, index) => (
+                      <div key={index} className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-purple-500/10 border border-purple-500/30 rounded-full">
+                        <span className="text-purple-400 text-xs sm:text-sm font-medium">{badge}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -68,7 +82,7 @@ export default function Experience({ experiences }: ExperienceProps) {
                 <ul className="space-y-2 sm:space-y-3">
                   {exp.achievements.map((achievement, i) => (
                     <li key={i} className="flex items-start gap-3 text-slate-300 text-sm sm:text-base">
-                      <span className="text-cyan-400 mt-1 flex-shrink-0">▹</span>
+                      <div className="mt-2 w-2 h-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex-shrink-0 shadow-lg shadow-cyan-400/50 animate-pulse"></div>
                       <span className="leading-relaxed">{achievement}</span>
                     </li>
                   ))}

@@ -1,5 +1,21 @@
 import { Profile, Education, Certification, Project, Skill, Experience, YouTubeChannel, ExtracurricularActivity } from '../types/portfolio';
 
+/*
+===============================================================================
+                        EXPERIENCE DATE OPTIONS
+===============================================================================
+
+Date Options (choose ONE):
+- startDate + endDate: '2020-08' to '2022-06' (date range)
+- fixedDate: '2024' or 'Current' (single date)
+
+Badge Options:
+- isCurrent: true (shows "Current" badge)
+- badges: ['Side Hustle', 'Part-time', 'Internship'] (custom badges)
+
+===============================================================================
+*/
+
 export const profile: Profile = {
   name: 'Shawn Ignace Rodrigues',
   title: 'Computer Engineer',
@@ -146,32 +162,98 @@ export const skills: Skill[] = [
 export const experience: Experience[] = [
   {
     id: '1',
-    company: 'Linux Systems & Hosting Infrastructure 💻',
-    position: '',
-    location: 'India',
-    startDate: 'null',
-    endDate: null,
-    description: 'Leading development of cloud-native infrastructure and distributed systems. Architecting scalable solutions serving millions of users.',
+    company: 'ZAP-Hosting',
+    position: 'Official Brand Content Creator (YouTube & Social Media)',
+    location: 'Remote',
+    fixedDate: '2019 - Present',
+    isCurrent: true, // Shows "Current" badge
+    badges: ['Side Hustle'], // Custom badges
+    description: 'Served as a Brand Ambassador and content expert, producing educational and engaging video content to promote ZAP-Hosting range of products, including game servers, dedicated servers, and hosting infrastructure.',
     achievements: [
-      'Designed and implemented microservices platform reducing deployment time by 75%',
-      'Led migration to Kubernetes, improving system reliability to 99.99% uptime',
-      'Mentored team of 8 engineers and established engineering best practices',
-      'Reduced cloud infrastructure costs by 40% through optimization initiatives'
+      'Produced over 100+ high-quality video tutorials and product reviews, significantly increasing brand awareness and product understanding',
+      'Drove measurable traffic and sign-ups to ZAP-Hosting services via dedicated affiliate links and clear calls-to-action in video descriptions',
+      'Monitored audience feedback and engagement to provide direct, actionable insights to the marketing and product development teams'
     ]
   },
   {
     id: '2',
-    company: 'AI Research Labs',
-    position: 'Machine Learning Engineer',
-    location: 'India',
-    startDate: '2020-08',
-    endDate: '2022-06',
-    description: 'Developed production ML systems and research prototypes. Specialized in deep learning, NLP, and computer vision applications.',
+    company: 'Goan Traders',
+    position: 'IT Support Associate & Sales',
+    location: 'Goa, India', // <<-- EDIT THIS LOCATION IF NEEDED
+    fixedDate: '2022 - 2025', // <<-- EDIT THESE DATES
+    isCurrent: false,
+    badges: ['Part-time'], // Custom badges
+    description: 'Managed frontline sales operations while providing essential technical support to ensure seamless functioning of internal IT systems, inventory management, and point-of-sale (POS) equipment.',
     achievements: [
-      'Built recommendation system serving 5M+ daily active users',
-      'Published 3 papers at top-tier ML conferences (NeurIPS, ICML)',
-      'Optimized inference pipeline achieving 10x throughput improvement',
-      'Created ML infrastructure tools adopted across organization'
+      'Successfully managed end-to-end sales process, consistently meeting or exceeding monthly sales targets by [X]%',
+      'Provided first-line IT support, diagnosing and resolving hardware and software issues for staff, minimizing operational downtime',
+      'Maintained and configured Point-of-Sale (POS) systems and inventory management software, ensuring accurate transaction processing',
+      'Trained new employees on sales protocols, product knowledge, and basic IT troubleshooting procedures'
+    ]
+  },
+  {
+    id: '3',
+    company: 'Fluxatic Global UI/UX',
+    position: 'Intern UI/UX Designer',
+    location: 'India',
+    fixedDate: '2024',
+    badges: ['Internship'],
+    isCurrent: false, // Past internship, no badge
+    description: 'Collaborated with the design team to create intuitive user interfaces for web and mobile applications. Focused on enhancing user experience through research, wireframing, and prototyping.',
+    achievements: [
+        'Assisted in designing user-friendly interfaces for mobile applications',
+        'Conducted user research to understand pain points and improve product interactions',
+        'Created wireframes, prototypes, and high-fidelity designs using industry-standard tools',
+        'Worked closely with developers to ensure seamless implementation of UI components',
+        'Participated in design reviews, iterating based on feedback and usability testing',
+        'Explored trends in UI/UX to bring fresh perspectives to the design team'
+    ]
+  },
+  {
+    id: '4',
+    company: 'Gamerscord',
+    position: 'Content Writer & Tech Blogger (Side Project)',
+    location: 'Chandigarh Remote', // <<-- EDIT THIS LOCATION IF NEEDED
+    fixedDate: '2021', // <<-- EDIT THESE DATES
+    isCurrent: false,
+    badges: ['Side Hustle'],
+    description: 'Contributed as a founding team member and Content Writer for a collaborative side project, creating engaging blog content focused on technology, gaming news, hardware reviews, and general industry trends.',
+    achievements: [
+      'Authored and edited 30+ blog posts and articles, maintaining a consistent publication schedule across diverse topics in tech and gaming',
+      'Conducted research on emerging hardware and software to provide readers with well-informed reviews and analysis',
+      'Utilized SEO best practices in content creation to improve visibility and organic traffic for blog posts',
+      'Collaborated with fellow team members on content strategy, editing cycles, and blog promotion across social media platforms'
+    ]
+  },
+  {
+    id: '5',
+    company: 'Zap-Hosting',
+    position: 'Support Intern',
+    location: 'Germany (Remote)',
+    fixedDate: '2020',
+    isCurrent: false, // Past internship, no badge
+    badges: ['Internship'], // Custom badges
+    description: 'Assisted over 150 individuals in setting up Linux servers. Provided technical support and troubleshooting for hosting services.',
+    achievements: [
+        'Led a team of 5 members',
+        'Provided guidance on Linux server operations (Adding Swap, ssh)',
+        'Learned about Linux firewalls during the process'
+    ]
+  },
+  {
+    id: '6',
+    company: 'Internship At Hexcoders',
+    position: 'Web Development Intern',
+    location: 'Goa, India',
+    fixedDate: '2022',
+    badges: ['Internship'],
+    isCurrent: false, // Past internship, no badge
+    description: 'Worked on web development projects, contributing to both front-end and back-end tasks. Gained experience in building responsive websites and collaborating with a development team.',
+    achievements: [
+        'Developing UI and interface using Figma',
+        'Development in PHP, Bootstrap',
+        'Designing a website',
+        'Digital designs'
     ]
   },
 ];

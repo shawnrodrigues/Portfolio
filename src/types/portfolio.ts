@@ -53,8 +53,11 @@ export interface Experience {
   company: string;
   position: string;
   location: string;
-  startDate: string;
-  endDate: string | null;
+  startDate?: string;
+  endDate?: string | null;
+  fixedDate?: string; // New option for single fixed date
+  isCurrent?: boolean; // Controls whether to show "Current" badge
+  badges?: string[]; // Array of badges like ['Side Hustle', 'Remote', 'Part-time']
   description: string;
   achievements: string[];
 }
