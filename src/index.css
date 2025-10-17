@@ -27,6 +27,15 @@
     }
   }
 
+  /* Pause animations when page is hidden */
+  .pause-animations {
+    animation-play-state: paused !important;
+  }
+  
+  .pause-animations * {
+    animation-play-state: paused !important;
+  }
+
   .bg-300 {
     background-size: 300% 300%;
   }

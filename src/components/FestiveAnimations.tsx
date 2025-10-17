@@ -1,6 +1,31 @@
 import { useEffect, useState } from 'react';
 import { useFestive } from '../contexts/FestiveContext';
 
+// Custom hook for page visibility
+const usePageVisibility = () => {
+  const [isVisible, setIsVisible] = useState(!document.hidden);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      setIsVisible(!document.hidden);
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    // Also listen for focus/blur events as fallback
+    window.addEventListener('focus', () => setIsVisible(true));
+    window.addEventListener('blur', () => setIsVisible(false));
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('focus', () => setIsVisible(true));
+      window.removeEventListener('blur', () => setIsVisible(false));
+    };
+  }, []);
+
+  return isVisible;
+};
+
 interface Firework {
   id: number;
   x: number;
@@ -100,6 +125,7 @@ interface Pumpkin {
 
 export default function FestiveAnimations() {
   const { festiveTheme, fireworksActive } = useFestive();
+  const isPageVisible = usePageVisibility();
   const [fireworks, setFireworks] = useState<Firework[]>([]);
   const [snowflakes, setSnowflakes] = useState<Snowflake[]>([]);
   const [balloons, setBalloons] = useState<Balloon[]>([]);
@@ -107,7 +133,7 @@ export default function FestiveAnimations() {
   const [sparkles, setSparkles] = useState<Sparkle[]>([]);
   const [pumpkins, setPumpkins] = useState<Pumpkin[]>([]);
   
-  const isFestiveMode = festiveTheme !== 'off';
+  const isFestiveMode = festiveTheme !== 'off' && isPageVisible;
 
   const createFirework = (startX?: number, targetY?: number) => {
     // Launch from bottom of screen
@@ -490,13 +516,19 @@ export default function FestiveAnimations() {
     <>
       {/* Festive Animations Canvas */}
       <div 
-        className="fixed inset-0 pointer-events-none z-50"
-        style={{ mixBlendMode: festiveTheme === 'christmas' ? 'normal' : 'screen' }}
+        className={`fixed inset-0 pointer-events-none z-50 ${!isPageVisible ? 'pause-animations' : ''}`}
+        style={{ 
+          mixBlendMode: festiveTheme === 'christmas' ? 'normal' : 'screen',
+          animationPlayState: isPageVisible ? 'running' : 'paused'
+        }}
       >
         <svg 
           width="100%" 
           height="100%" 
           className="absolute inset-0"
+          style={{
+            animationPlayState: isPageVisible ? 'running' : 'paused'
+          }}
         >
           {/* Diwali Fireworks */}
           {festiveTheme === 'diwali' && fireworks.map(firework => (

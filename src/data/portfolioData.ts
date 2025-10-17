@@ -146,10 +146,10 @@ export const skills: Skill[] = [
 export const experience: Experience[] = [
   {
     id: '1',
-    company: 'GamersCord',
+    company: 'Linux Server & Hosting Experience',
     position: 'Managing Editor',
     location: 'India',
-    startDate: '2020',
+    startDate: 'null',
     endDate: null,
     description: 'Leading development of cloud-native infrastructure and distributed systems. Architecting scalable solutions serving millions of users.',
     achievements: [
