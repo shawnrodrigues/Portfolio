@@ -415,16 +415,13 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
     <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-cyan-500/20">
       <nav className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-8">
             <button 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent text-gradient-fix header-name-text hover:opacity-80 transition-opacity cursor-pointer"
+              className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent text-gradient-fix header-name-text hover:opacity-80 transition-opacity cursor-pointer whitespace-nowrap"
             >
               {profile.name}
             </button>
-          </div>
-
-          <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -437,9 +434,19 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
             ))}
           </div>
 
+          {/* Mobile layout - keep name separate for mobile */}
+          <div className="flex items-center gap-3 md:hidden">
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent text-gradient-fix header-name-text hover:opacity-80 transition-opacity cursor-pointer whitespace-nowrap"
+            >
+              {profile.name}
+            </button>
+          </div>
+
           <div className="hidden md:flex items-center gap-4">
             {/* Theme Toggle Button */}
-            <div className="relative">
+            <div className="relative ml-5">
               <button
                 onClick={() => setIsThemeOpen(!isThemeOpen)}
                 className="flex items-center gap-2 p-2 text-slate-300 hover:text-cyan-400 rounded-lg transition-all"
@@ -567,7 +574,7 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
                           <button
                             key={theme.id}
                             onClick={() => handleThemeChange(theme.id)}
-                            className={`flex items-center gap-1.5 w-full p-1.5 text-left text-xs rounded transition-colors ${
+                            className={`flex items-center gap-50 w-full p-1.5 text-left text-xs rounded transition-colors ${
                               currentTheme?.id === theme.id 
                                 ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/50' 
                                 : 'text-slate-200 hover:bg-slate-700/50 border border-transparent'
