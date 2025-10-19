@@ -118,9 +118,18 @@ export const projects: Project[] = [
     title: 'Goan Traders',
     description: 'Goan Traders is a full-stack web application designed to provide a seamless online shopping experience for building materials and cement. The platform enables customers to browse products, place orders, and get in touch with support effortlessly. The project emphasizes usability, secure transactions, and efficient product management for local businesses in the construction industry.',
     technologies: ['Astro', 'JavaScript'],
-    featured: true,
+    featured: false,
     liveUrl: 'https://goantraders.com/',
     githubUrl: 'https://github.com/shawnrodrigues/Goan-Traders'
+  },
+  {
+    id: '3',
+    title: 'LIFI (Light Fidelity) Communication System',
+    description: 'A proof-of-concept hardware project demonstrating LiFi (Light Fidelity), a wireless communication technology that uses visible light to transmit high-speed, bi-directional data. The system is built around an **Arduino Uno**, utilizing LEDs and a Light Dependent Resistor (LDR) for signal modulation and detection. The project showcases how light intensity modulation can be used to send and receive data.',
+    technologies: ['C++', 'Arduino Uno', 'LDR/LED', 'SD Library'],
+    featured: true,
+    liveUrl: 'https://www.youtube.com/watch?v=2KlDNONzeZ8',
+    githubUrl: 'https://github.com/shawnrodrigues/LIFI'
   },
 ];
 
