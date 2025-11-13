@@ -29,7 +29,7 @@ const getAutomaticFestiveTheme = (): FestiveTheme => {
   }
 
   // 🪔 Diwali Season: Mid-October to Mid-November (avoiding Halloween overlap)
-  if ((month === 10 && day >= 10 && day <= 24) || (month === 11 && day >= 2 && day <= 20)) {
+  if (month === 10 && day >= 10 && day <= 24) {
     return 'diwali';
   }
 
