@@ -39,7 +39,7 @@ export default function Certifications({ certifications }: CertificationsProps) 
               className="group relative bg-slate-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20 hover:-translate-y-1"
               style={{ animationDelay: `${index * 100}ms` }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.setProperty('--title-color', currentTheme.colors.primary);
+                e.currentTarget.style.setProperty('--title-color', currentTheme?.colors.primary || 'white');
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.setProperty('--title-color', 'white');
