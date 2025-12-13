@@ -15,40 +15,6 @@ export default function ExtracurricularActivities({ activities }: Extracurricula
     return views;
   };
 
-
-
-  const getActivityColor = (type: string) => {
-    switch (type) {
-      case 'youtube':
-        return {
-          primary: 'red-400',
-          secondary: 'pink-500',
-          border: 'red-500/20',
-          borderHover: 'red-500/50',
-          shadow: 'red-500/20',
-          bg: 'red-500/10'
-        };
-      case 'other':
-        return {
-          primary: 'green-400',
-          secondary: 'green-500',
-          border: 'green-500/20',
-          borderHover: 'green-500/50',
-          shadow: 'green-500/20',
-          bg: 'green-500/10'
-        };
-      default:
-        return {
-          primary: 'purple-400',
-          secondary: 'pink-500',
-          border: 'purple-500/20',
-          borderHover: 'purple-500/50',
-          shadow: 'purple-500/20',
-          bg: 'purple-500/10'
-        };
-    }
-  };
-
   const renderPartnershipActivity = (activity: ExtracurricularActivity) => {
     const partnership = activity.details;
 
