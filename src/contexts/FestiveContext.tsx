@@ -19,7 +19,7 @@ const getAutomaticFestiveTheme = (): FestiveTheme => {
   }
 
   // 🎄 Christmas Season: December 15-29 (before New Year)
-  if (month === 12 && day >= 15 && day <= 29) {
+  if (month === 12 && day >= 12 && day <= 29) {
     return 'christmas';
   }
 
