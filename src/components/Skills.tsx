@@ -1,3 +1,4 @@
+import React from 'react';
 import { Cpu, Zap } from 'lucide-react';
 import { Skill } from '../types/portfolio';
 import { useTheme } from '../contexts/ThemeContext';

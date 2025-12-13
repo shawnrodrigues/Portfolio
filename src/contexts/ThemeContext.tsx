@@ -14,12 +14,22 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useState<Theme | null>(null);
+  const [currentTheme, setCurrentTheme] = useState<Theme | null>(() => {
+    // Check localStorage for saved theme
+    const savedThemeId = localStorage.getItem('portfolio-theme');
+    if (savedThemeId) {
+      const savedTheme = themes.find(t => t.id === savedThemeId);
+      if (savedTheme) return savedTheme;
+    }
+    // Default to first theme if no saved theme
+    return themes[0] || null;
+  });
 
   const setTheme = (themeId: string) => {
     const theme = themes.find(t => t.id === themeId);
     if (theme) {
       setCurrentTheme(theme);
+      localStorage.setItem('portfolio-theme', themeId);
     }
   };
 

@@ -284,7 +284,7 @@ export default function ExtracurricularActivities({ activities }: Extracurricula
                 <img
                   src={channel.logoUrl}
                   alt={`${channel.channelName} logo`}
-                  className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-${colors.border}`}
+                  className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 ${activity.type === 'youtube' ? 'border-red-500/20' : 'border-purple-500/20'}`}
                 />
               ) : (
                 <div className={`p-4 ${activity.type === 'youtube' ? 'bg-red-500/10' : 'bg-purple-500/10'} rounded-2xl`}>

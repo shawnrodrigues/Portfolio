@@ -1,5 +1,5 @@
 import { Github, Linkedin, Mail, Menu, X, Palette, ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Profile } from '../types/portfolio';
 import DiscordIcon from './DiscordIcon';
 import { useTheme } from '../contexts/ThemeContext';
@@ -15,20 +15,26 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
   const [isThemeOpen, setIsThemeOpen] = useState(false);
   const { currentTheme, availableThemes, setTheme } = useTheme();
 
-  const handleThemeChange = (themeId: string) => {
-    const theme = availableThemes.find(t => t.id === themeId);
-    if (theme) {
-      setTheme(themeId);
-      
-      // Replace all blue colors with theme colors
-      const style = document.createElement('style');
-      style.id = 'theme-override';
-      
-      // Remove existing theme style if it exists
-      const existing = document.getElementById('theme-override');
-      if (existing) existing.remove();
-      
-      style.innerHTML = `
+  // Apply theme CSS on mount and when theme changes
+  useEffect(() => {
+    if (currentTheme) {
+      applyThemeStyles(currentTheme);
+    }
+  }, [currentTheme]);
+
+  const applyThemeStyles = (theme: typeof availableThemes[0]) => {
+    // Remove existing theme style if it exists
+    const existing = document.getElementById('theme-override');
+    if (existing) existing.remove();
+
+    const style = document.createElement('style');
+    style.id = 'theme-override';
+    style.innerHTML = generateThemeCSS(theme);
+    document.head.appendChild(style);
+  };
+
+  const generateThemeCSS = (theme: typeof availableThemes[0]) => {
+    return `
         /* Text colors */
         .text-cyan-400 { color: ${theme.colors.primary} !important; }
         .hover\\:text-cyan-400:hover { color: ${theme.colors.primary} !important; }
@@ -390,11 +396,11 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
           --theme-accent: ${theme.colors.accent};
         }
       `;
-      
-      document.head.appendChild(style);
-      localStorage.setItem('portfolio-theme', themeId);
-      setIsThemeOpen(false);
-    }
+  };
+
+  const handleThemeChange = (themeId: string) => {
+    setTheme(themeId);
+    setIsThemeOpen(false);
   };
 
   const navItems = [
@@ -574,7 +580,7 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
                           <button
                             key={theme.id}
                             onClick={() => handleThemeChange(theme.id)}
-                            className={`flex items-center gap-50 w-full p-1.5 text-left text-xs rounded transition-colors ${
+                            className={`flex items-center gap-2 w-full p-1.5 text-left text-xs rounded transition-colors ${
                               currentTheme?.id === theme.id 
                                 ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/50' 
                                 : 'text-slate-200 hover:bg-slate-700/50 border border-transparent'
