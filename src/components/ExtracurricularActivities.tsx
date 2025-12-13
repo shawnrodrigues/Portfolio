@@ -272,7 +272,6 @@ export default function ExtracurricularActivities({ activities }: Extracurricula
 
   const renderYouTubeActivity = (activity: ExtracurricularActivity) => {
     const channel = activity.details as YouTubeChannel;
-    const colors = getActivityColor(activity.type);
 
     return (
       <div className="space-y-8">

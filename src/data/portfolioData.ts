@@ -194,7 +194,7 @@ export const experience: Experience[] = [
     badges: ['Part-time'], // Custom badges
     description: 'Managed frontline sales operations while providing essential technical support to ensure seamless functioning of internal IT systems, inventory management, and point-of-sale (POS) equipment.',
     achievements: [
-      'Successfully managed end-to-end sales process, consistently meeting or exceeding monthly sales targets by [X]%',
+      'Successfully managed end-to-end sales processes, consistently achieving and exceeding monthly sales targets',
       'Provided first-line IT support, diagnosing and resolving hardware and software issues for staff, minimizing operational downtime',
       'Maintained and configured Point-of-Sale (POS) systems and inventory management software, ensuring accurate transaction processing',
       'Trained new employees on sales protocols, product knowledge, and basic IT troubleshooting procedures'
