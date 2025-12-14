@@ -22,6 +22,39 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
     }
   }, [currentTheme]);
 
+  // Close theme dropdown when pressing Escape or clicking outside
+  useEffect(() => {
+    const handleEscapeKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isThemeOpen) {
+        setIsThemeOpen(false);
+      }
+    };
+
+    const handleClickOutside = () => {
+      if (isThemeOpen) {
+        setIsThemeOpen(false);
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden && isThemeOpen) {
+        setIsThemeOpen(false);
+      }
+    };
+
+    if (isThemeOpen) {
+      document.addEventListener('keydown', handleEscapeKey);
+      window.addEventListener('blur', handleClickOutside);
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+      window.removeEventListener('blur', handleClickOutside);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [isThemeOpen]);
+
   const applyThemeStyles = (theme: typeof availableThemes[0]) => {
     // Remove existing theme style if it exists
     const existing = document.getElementById('theme-override');
@@ -312,6 +345,21 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
         ::-webkit-scrollbar-thumb:hover { background-color: ${theme.colors.secondary} !important; }
         ::-webkit-scrollbar-track { background-color: ${theme.colors.primary}10 !important; }
         
+        /* Custom scrollbar for theme dropdown */
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: ${theme.colors.primary}30;
+          border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: ${theme.colors.primary}50;
+        }
+        
         /* Selection colors */
         ::selection { background-color: ${theme.colors.primary}60 !important; color: white !important; }
         ::-moz-selection { background-color: ${theme.colors.primary}60 !important; color: white !important; }
@@ -432,7 +480,7 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className="text-slate-300 hover:text-cyan-400 transition-colors relative group"
+                className="text-cyan-400 hover:text-cyan-300 transition-colors relative group"
               >
                 {item.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300"></span>
@@ -454,8 +502,11 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
             {/* Theme Toggle Button */}
             <div className="relative ml-5">
               <button
-                onClick={() => setIsThemeOpen(!isThemeOpen)}
-                className="flex items-center gap-2 p-2 text-slate-300 hover:text-cyan-400 rounded-lg transition-all"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsThemeOpen(!isThemeOpen);
+                }}
+                className="flex items-center gap-2 p-2 text-cyan-400 hover:text-cyan-300 rounded-lg transition-all"
                 aria-label="Change theme"
               >
                 <Palette size={18} />
@@ -469,19 +520,31 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
               {isThemeOpen && (
                 <>
                   <div 
-                    className="fixed inset-0 z-10"
-                    onClick={() => setIsThemeOpen(false)}
+                    className="fixed inset-0 z-[9999]"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsThemeOpen(false);
+                    }}
                   />
-                  <div className="absolute right-0 z-20 mt-2 w-80 max-h-96 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-xl border border-cyan-500/20 overflow-hidden">
+                  <div className="absolute right-0 z-[10000] mt-2 w-80 max-h-96 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-xl border border-cyan-500/20 overflow-hidden">
                     <div className="p-3 text-sm font-semibold text-slate-300 border-b border-cyan-500/20">
                       Choose Theme
                     </div>
-                    <div className="p-3 max-h-80 overflow-y-auto">
+                    <div 
+                      className="p-3 max-h-80 overflow-y-auto custom-scrollbar"
+                      style={{
+                        scrollbarWidth: 'thin',
+                        scrollbarColor: 'rgba(6, 182, 212, 0.3) transparent'
+                      }}
+                    >
                       <div className="grid grid-cols-2 gap-2">
                         {availableThemes.map((theme) => (
                           <button
                             key={theme.id}
-                            onClick={() => handleThemeChange(theme.id)}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleThemeChange(theme.id);
+                            }}
                             className={`flex items-center gap-2 w-full p-2 text-left text-xs rounded-md transition-colors ${
                               currentTheme?.id === theme.id 
                                 ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/50' 
@@ -519,7 +582,7 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10 rounded-lg transition-all"
+              className="p-2 text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 rounded-lg transition-all"
             >
               <Github size={20} />
             </a>
@@ -527,13 +590,13 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10 rounded-lg transition-all"
+              className="p-2 text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 rounded-lg transition-all"
             >
               <Linkedin size={20} />
             </a>
             <a
               href={`mailto:${profile.email}`}
-              className="p-2 text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10 rounded-lg transition-all"
+              className="p-2 text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 rounded-lg transition-all"
             >
               <Mail size={20} />
             </a>
@@ -542,7 +605,7 @@ export default function Header({ profile, onNavigate }: HeaderProps) {
                 href={`https://discord.com/users/${profile.discord}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10 rounded-lg transition-all"
+                className="p-2 text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 rounded-lg transition-all"
                 title="Discord"
               >
                 <DiscordIcon size={20} />

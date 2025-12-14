@@ -10,7 +10,7 @@ export default function Footer() {
             Built with <Heart 
               size={14} 
               className="sm:w-4 sm:h-4 text-cyan-400 heart-pulse-glow" 
-            /> Made By Shawn
+            /> By Shawn
           </p>
           <p className="text-slate-500 text-xs sm:text-sm">
             {new Date().getFullYear()} - All rights reserved

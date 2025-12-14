@@ -64,12 +64,12 @@ export default function Hero({ profile, onNavigate }: HeroProps) {
           >
             View My Work
           </button>
-          <button
-            onClick={() => window.location.href = `mailto:${profile.email}`}
-            className="px-8 py-4 bg-slate-800/50 border border-cyan-500/30 rounded-lg font-semibold text-cyan-400 hover:bg-slate-800 hover:border-cyan-500 transform hover:-translate-y-1 transition-all duration-300"
+          <a
+            href={`mailto:${profile.email}`}
+            className="px-8 py-4 bg-slate-800/50 border border-cyan-500/30 rounded-lg font-semibold text-cyan-400 hover:bg-slate-800 hover:border-cyan-500 transform hover:-translate-y-1 transition-all duration-300 inline-block"
           >
             Get In Touch
-          </button>
+          </a>
         </div>
       </div>
     </section>

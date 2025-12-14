@@ -131,6 +131,20 @@ export const projects: Project[] = [
     liveUrl: 'https://www.youtube.com/watch?v=2KlDNONzeZ8',
     githubUrl: 'https://github.com/shawnrodrigues/LIFI'
   },
+  {
+  id: '4',
+  title: 'Dual-ISP Home Network Infrastructure with Load Balancing',
+  description: 'A self-designed and implemented home network infrastructure project focused on reliability, performance, and scalability. The setup includes a dual-ISP load balancer for automatic failover and bandwidth distribution, along with a TP-Link Deco Mesh Wi-Fi system deployed across multiple floors to ensure seamless wireless coverage.',
+  technologies: [
+    'Dual ISP Load Balancing',
+    'Router & Switch Configuration',
+    'DHCP / NAT / Port Forwarding',
+    'QoS & Traffic Management',
+  ],
+  featured: false,
+  liveUrl: '',
+  githubUrl: ''
+  },
 ];
 
 export const skills: Skill[] = [
@@ -400,20 +414,6 @@ export const themes: Theme[] = [
     }
   },
   {
-    id: 'purple',
-    name: 'Purple Dream',
-    colors: {
-      primary: '#8b5cf6',
-      secondary: '#7c3aed',
-      accent: '#a78bfa',
-      background: '#fefbff',
-      surface: '#f3f4f6',
-      text: '#1f2937',
-      textSecondary: '#6b7280',
-      border: '#e5e7eb'
-    }
-  },
-  {
     id: 'green',
     name: 'Nature Green',
     colors: {
@@ -610,20 +610,6 @@ export const themes: Theme[] = [
     }
   },
   {
-    id: 'sky',
-    name: 'Sky Blue',
-    colors: {
-      primary: '#0ea5e9',
-      secondary: '#0284c7',
-      accent: '#38bdf8',
-      background: '#ffffff',
-      surface: '#f0f9ff',
-      text: '#1f2937',
-      textSecondary: '#6b7280',
-      border: '#7dd3fc'
-    }
-  },
-  {
     id: 'fuchsia',
     name: 'Neon Fuchsia',
     colors: {
@@ -635,34 +621,6 @@ export const themes: Theme[] = [
       text: '#1f2937',
       textSecondary: '#6b7280',
       border: '#f0abfc'
-    }
-  },
-  {
-    id: 'darkPurple',
-    name: 'Dark Purple',
-    colors: {
-      primary: '#a855f7',
-      secondary: '#9333ea',
-      accent: '#c084fc',
-      background: '#0c0a09',
-      surface: '#1c1917',
-      text: '#f5f5f4',
-      textSecondary: '#a8a29e',
-      border: '#44403c'
-    }
-  },
-  {
-    id: 'darkGreen',
-    name: 'Dark Forest',
-    colors: {
-      primary: '#22c55e',
-      secondary: '#16a34a',
-      accent: '#4ade80',
-      background: '#0c0a09',
-      surface: '#1c1917',
-      text: '#f5f5f4',
-      textSecondary: '#a8a29e',
-      border: '#44403c'
     }
   },
   {

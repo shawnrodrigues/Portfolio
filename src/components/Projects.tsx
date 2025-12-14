@@ -31,14 +31,20 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group relative bg-slate-900/50 backdrop-blur-sm rounded-xl overflow-hidden border transition-all duration-300 hover:transform hover:-translate-y-2"
+              className="group relative bg-slate-900/50 backdrop-blur-sm rounded-xl overflow-visible border transition-all duration-300 hover:transform hover:-translate-y-2"
               style={{
                 borderColor: currentTheme ? `${currentTheme.colors.primary}20` : 'rgba(139, 92, 246, 0.2)',
                 boxShadow: `0 0 30px ${currentTheme ? currentTheme.colors.primary : '#8b5cf6'}10`,
               }}
             >
               {project.featured && (
-                <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full p-1.5 sm:p-2 shadow-lg shadow-cyan-500/50 z-10">
+                <div 
+                  className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full p-1.5 sm:p-2 z-10 animate-pulse"
+                  style={{
+                    boxShadow: '0 0 20px rgba(6, 182, 212, 0.8), 0 0 40px rgba(6, 182, 212, 0.4)',
+                    filter: 'drop-shadow(0 0 8px rgba(6, 182, 212, 0.6))'
+                  }}
+                >
                   <Sparkles size={16} className="sm:w-5 sm:h-5 text-white" />
                 </div>
               )}
