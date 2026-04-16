@@ -1,7 +1,7 @@
 {
-  "name": "Shawn Ignace Rodrigues - Portfolio",
-  "short_name": "SR Portfolio",
-  "description": "Professional Portfolio - Full Stack Developer specializing in React, TypeScript, and modern web technologies",
+  "name": "Shawn Ignace Rodrigues – Computer Engineer | Coconut Gamer",
+  "short_name": "Shawn Rodrigues",
+  "description": "Portfolio of Shawn Ignace Rodrigues – Computer Engineer, YouTube creator (Coconut Gamer), and ZAP-Hosting partner. Game hosting, web hosting, MySQL database tutorials, and tech content.",
   "icons": [
     {
       "src": "/favicon.ico",
@@ -21,7 +21,7 @@
   "start_url": "/",
   "scope": "/",
   "orientation": "portrait-primary",
-  "categories": ["portfolio", "developer", "technology"],
+  "categories": ["portfolio", "developer", "technology", "hosting", "gaming", "tutorials"],
   "lang": "en-US",
   "dir": "ltr",
   "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
