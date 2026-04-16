@@ -102,6 +102,12 @@ export const certifications: Certification[] = [
     issuer: 'NPTEL',
     issueDate: '2024',
   },
+  {
+    id: '8',
+    title: 'Introduction to DevOps',
+    issuer: 'Great Learning',
+    issueDate: '2026',
+  },
 ];
 
 export const projects: Project[] = [
