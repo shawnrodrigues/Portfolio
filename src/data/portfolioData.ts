@@ -285,6 +285,24 @@ export const experience: Experience[] = [
         'Digital designs'
     ]
   },
+  {
+    id: '7',
+    company: 'Residential Network & Surveillance Infrastructure',
+    position: 'Network & Security Systems Engineer',
+    location: 'Goa, India',
+    fixedDate: '2026',
+    badges: ['Home Project'],
+    isCurrent: false,
+    description: 'Designed, deployed, and commissioned a full end-to-end IP network and physical security infrastructure for a residential property. The project encompassed structured network planning, managed switching, mesh wireless distribution, and a dedicated IP camera surveillance system with centralised NVR recording — delivering enterprise-grade reliability in a residential environment.',
+    achievements: [
+      'Architected and implemented a layered network topology, configuring a managed network switch with VLAN segmentation to logically isolate the IoT surveillance traffic from the primary LAN, reducing broadcast domain congestion and mitigating lateral movement risks',
+      'Deployed and configured a TP-Link Deco mesh Wi-Fi system across multiple nodes, performing channel planning and band steering optimisation to ensure seamless roaming coverage with minimal interference throughout the entire property',
+      'Planned and executed structured cabling runs for the surveillance sub-network, performing cable terminations and continuity testing to guarantee signal integrity across all PoE (Power over Ethernet) drops',
+      'Installed and commissioned 8 high-resolution IP cameras, configuring individual stream parameters (resolution, frame rate, bitrate), motion detection zones, and RTSP endpoints for each unit within the NVR management interface',
+      'Configured the Network Video Recorder (NVR) for centralised video management, setting up continuous and motion-triggered recording schedules, storage retention policies, and remote viewing access via secure credentials',
+      'Conducted end-to-end system validation including network throughput testing, camera feed latency checks, NVR playback verification, and failover behaviour assessment to confirm stable 24/7 operational readiness'
+    ]
+  },
 ];
 
 export interface Theme {
